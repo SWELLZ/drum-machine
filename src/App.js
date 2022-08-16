@@ -1,6 +1,9 @@
+import DrumMachineComponent from "./components/drumMachineComponent/DrumMachineComponent";
 
 function App() {
-  return null;
+  return (
+    <DrumMachineComponent />
+  );
 }
 
 export default App;
