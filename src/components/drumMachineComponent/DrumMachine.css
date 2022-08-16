@@ -17,12 +17,20 @@ main {
     background-color: lightgrey;
 }
 .sound-controls {
+    padding: 20px 10px;
     width: 50%;
     height: 100%;
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 5px;
+}
+.display {
+    background-color: darkgray;
+    padding: 30px 10px;
 }
 .other-controls {
+    gap: 20px;
+    padding: 20px 10px;
     width: 50%;
     display: flex;
     flex-direction: column;
