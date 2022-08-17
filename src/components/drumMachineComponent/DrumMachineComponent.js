@@ -43,6 +43,7 @@ function DrumMachineComponent() {
     })
     //variable for whats shown on display
     const [display, setDisplay] = useState('');
+    const [volume, setVolume] = useState(1);
 
     //targets audio file with the same id as the button name and plays
     const playSound = (e) => {
@@ -52,6 +53,15 @@ function DrumMachineComponent() {
             let id = e.target.name;
             setDisplay(sounds[id].name);
             audio.play();
+        }
+    }
+    //changes volume of each audio element when range input is changed
+    const changeVolume = (e) => {
+        const audioElems = document.querySelectorAll('.clip');
+        setVolume(parseFloat(e.target.value));
+        setDisplay('Volume: ' + (Math.floor(e.target.value * 100)))
+        for (let audio of audioElems){
+            audio.volume = parseFloat(e.target.value)
         }
     }
     //Changes sounds aka kits
@@ -141,23 +151,23 @@ function DrumMachineComponent() {
             <div id='board-background'>
                 <div className='sound-controls'>
                     <button name='q' onClick={playSound}>Q</button>
-                    <audio id='q' className='clip' src={sounds.q.link}></audio>
+                    <audio volume={volume} id='q' className='clip' src={sounds.q.link}></audio>
                     <button name='w' onClick={playSound}>W</button>
-                    <audio id='w' className='clip' src={sounds.w.link}></audio>
+                    <audio volume={volume} id='w' className='clip' src={sounds.w.link}></audio>
                     <button name='e' onClick={playSound}>E</button>
-                    <audio id='e' className='clip' src={sounds.e.link}></audio>
+                    <audio volume={volume} id='e' className='clip' src={sounds.e.link}></audio>
                     <button name='a' onClick={playSound}>A</button>
-                    <audio id='a' className='clip' src={sounds.a.link}></audio>
+                    <audio volume={volume} id='a' className='clip' src={sounds.a.link}></audio>
                     <button name='s' onClick={playSound}>S</button>
-                    <audio id='s' className='clip' src={sounds.s.link}></audio>
+                    <audio volume={volume} id='s' className='clip' src={sounds.s.link}></audio>
                     <button name='d' onClick={playSound}>D</button>
-                    <audio id='d' className='clip' src={sounds.d.link}></audio>
+                    <audio volume={volume} id='d' className='clip' src={sounds.d.link}></audio>
                     <button name='z' onClick={playSound}>Z</button>
-                    <audio id='z' className='clip' src={sounds.z.link}></audio>
+                    <audio volume={volume} id='z' className='clip' src={sounds.z.link}></audio>
                     <button name='x' onClick={playSound}>X</button>
-                    <audio id='x' className='clip' src={sounds.x.link}></audio>
+                    <audio volume={volume} id='x' className='clip' src={sounds.x.link}></audio>
                     <button name='c' onClick={playSound}>C</button>
-                    <audio id='c' className='clip' src={sounds.c.link}></audio>
+                    <audio volume={volume} id='c' className='clip' src={sounds.c.link}></audio>
                 </div>
                 <div className='other-controls'>
                     <div className='power'>
@@ -172,7 +182,14 @@ function DrumMachineComponent() {
                     <div className='display'>
                         <p>{display}</p>
                     </div>
-                    <input type='range' />
+                    <input 
+                        type='range'
+                        max='1'
+                        min='0'
+                        step='0.01'
+                        onChange={changeVolume}
+                        value={volume}
+                    />
                     <div className='sound-type'>
                         <p>BANK</p>
                         <input 
