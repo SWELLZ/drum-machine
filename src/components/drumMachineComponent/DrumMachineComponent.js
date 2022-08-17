@@ -46,11 +46,15 @@ function DrumMachineComponent() {
 
     //targets audio file with the same id as the button name and plays
     const playSound = (e) => {
-        const audio = document.getElementById(e.target.name);
-        let id = e.target.name;
-        setDisplay(sounds[id].name);
-        audio.play();
+        const on = document.getElementById('power-checkbox');
+        if (on.checked){
+            const audio = document.getElementById(e.target.name);
+            let id = e.target.name;
+            setDisplay(sounds[id].name);
+            audio.play();
+        }
     }
+    //Changes sounds aka kits
     const changeKit = (e) => {
         if (e.target.checked){
             setSounds({
