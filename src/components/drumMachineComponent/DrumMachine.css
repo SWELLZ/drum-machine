@@ -52,7 +52,7 @@ main {
     flex-direction: column;
     justify-content: center;
 }
-/* Toggle Button */
+/* Toggle Button Styling */
 .cm-toggle {
 	-webkit-appearance: none;
 	-webkit-tap-highlight-color: transparent;
@@ -61,9 +61,6 @@ main {
 	outline: 0;
 	cursor: pointer;
 }
-
-
-/* To create surface of toggle button */
 .cm-toggle:after {
 	content: '';
 	width: 50px;
@@ -72,9 +69,6 @@ main {
 	background: black;
 	clear: both;
 }
-
-
-/* Contents before checkbox to create toggle handle */
 .cm-toggle:before {
 	content: '';
 	width: 20px;
@@ -85,9 +79,26 @@ main {
 	top: 2px;
 	background: blue;
 }
-
-
-/* Shift the handle to left on check event */
 .cm-toggle:checked:before {
 	left: 27px;
+}
+/* Soundbar styling */
+.volume-bar {
+    -webkit-appearance: none;
+}
+.volume-bar:focus {
+    outline: none;
+}
+.volume-bar::-webkit-slider-runnable-track {
+    background-color: rgb(51, 51, 51);
+    height: 5px;
+    box-shadow: 0px 3px 5px 1px;
+}
+.volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    margin-top: -7px;
+    width: 10px;
+    background-color: blue;
+    box-shadow: 1px 1px 1px 1px;
 }
