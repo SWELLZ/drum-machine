@@ -6,6 +6,9 @@ main {
     justify-content: center;
     align-items: center;
     height: 100%;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /*Sound board background*/
 #board-background {

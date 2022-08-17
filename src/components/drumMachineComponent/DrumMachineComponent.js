@@ -43,6 +43,7 @@ function DrumMachineComponent() {
     })
     //variable for whats shown on display
     const [display, setDisplay] = useState('');
+    //volume variable
     const [volume, setVolume] = useState(1);
 
     //targets audio file with the same id as the button name and plays
@@ -146,6 +147,7 @@ function DrumMachineComponent() {
             })
         }
     }
+    
     return (
         <main>
             <div id='board-background'>
