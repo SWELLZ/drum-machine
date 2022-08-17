@@ -39,7 +39,7 @@ function DrumMachineComponent() {
         c: {
             name: 'Closed HH',
             link: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
-        },
+        }
     })
     //variable for whats shown on display
     const [display, setDisplay] = useState('');
@@ -52,13 +52,84 @@ function DrumMachineComponent() {
         audio.play();
     }
     const changeKit = (e) => {
-        const audioFiles = document.querySelectorAll('.clip');
         if (e.target.checked){
-            for (let audio in audioFiles){
-
-            }
+            setSounds({
+                q: {
+                    name: 'Chord 1',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3'
+                },
+                w: {
+                    name: 'Chord 2',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3'
+                },
+                e: {
+                    name: 'Chord 3',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3'
+                },
+                a: {
+                    name: 'Shaker',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3'
+                },
+                s: {
+                    name: 'Open HH',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3'
+                },
+                d: {
+                    name: 'Closed HH',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3'
+                },
+                z: {
+                    name: 'Punchy Kick',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3'
+                },
+                x: {
+                    name: 'Side Stick',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3'
+                },
+                c: {
+                    name: 'Snare',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
+                }
+            })
         } else {
-
+            setSounds({
+                q: {
+                    name: 'Heater 1',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+                },
+                w: {
+                    name: 'Heater 2',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
+                },
+                e: {
+                    name: 'Heater 3',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
+                },
+                a: {
+                    name: 'Heater 4',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
+                },
+                s: {
+                    name: 'Clap',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
+                },
+                d: {
+                    name: 'Open HH',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'
+                },
+                z: {
+                    name: 'Kick n\' Hat',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
+                },
+                x: {
+                    name: 'Kit',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
+                },
+                c: {
+                    name: 'Closed HH',
+                    link: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
+                }
+            })
         }
     }
     return (
@@ -104,6 +175,7 @@ function DrumMachineComponent() {
                             id='sound-checkbox' 
                             type='checkbox' 
                             className='cm-toggle' 
+                            onChange={changeKit}
                         />
                     </div>
                 </div>
